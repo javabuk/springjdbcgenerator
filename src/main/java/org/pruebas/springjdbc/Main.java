@@ -26,32 +26,26 @@ public class Main implements CommandLineRunner {
     PruebasTransacciones pruebas;
 
     public static void main(String[] args) throws Exception {
+        String [] argumentos = new String[2];
+
         Scanner scanner = new Scanner(System.in);
-
-
-        System.out.print("Introduce el primer parametro: ");
-
-        // get their input as a String
-        String primerParametro = scanner.next();
-
-        System.out.print("Introduce el segundo parametro: ");
-        // get their input as a String
-        String segundoParametro = scanner.next();
-
+        System.out.print("Introduce el nombre de la tabla: ");
+        String nombreTabla = scanner.next();
+        argumentos[0] = nombreTabla;
+        System.out.print("Introduce el nombre de la entidad: ");
+        String nombreEntidad= scanner.next();
+        argumentos[1] = nombreEntidad;
         SpringApplication app = new SpringApplication(Main.class);
         app.setBannerMode(Banner.Mode.OFF);
-        app.run(args);
-
+        app.run(argumentos);
     }
 
 
     public void run(String... args) throws Exception {
-        if (args.length > 0) {
-            clienteTabla.probar(args[0]);
-        } else {
-            System.out.println("Sin parametros");
-        }
-        pruebas.probarTransaccion();
+
+        clienteTabla.probar(args[0]);
+        //pruebas.probarTransaccion();
+        System.out.println("Proceso finalizado");
         exit(0);
     }
 }
