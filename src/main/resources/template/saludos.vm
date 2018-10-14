@@ -1,0 +1,8 @@
+package $packageName;
+
+public class $className {
+
+	public static String $methodName () {
+		return "Hello $names!";
+	}
+}

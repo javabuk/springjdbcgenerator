@@ -1,0 +1,26 @@
+package $packageName;
+
+public class $className {
+
+#foreach ($campo in $listaCampos)
+	private $campo.getTipoCampo() $campo.getNombreCampo();
+		 
+#end
+	
+	
+#foreach ($campo in $listaCampos)
+	public $campo.getTipoCampo() get$campo.getNombreCampo()(){
+		return $campo.getNombreCampo();
+	} 
+	
+	public void set$campo.getNombreCampo()($campo.getTipoCampo() $campo.getNombreCampo()){
+		this.$campo.getNombreCampo() = $campo.getNombreCampo();
+	}
+	
+#end
+	
+	
+	
+	
+	
+}
